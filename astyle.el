@@ -6,8 +6,9 @@
 ;; URL: https://github.com/storvik/emacs-astyle
 ;; Version: 0.1.0
 ;; Created: 2019-03-16
-;; Package-Requires: ((emacs "25.1") (reformatter "0.4"))
+;; Package-Requires: ((emacs "24.4") (reformatter "0.4"))
 ;; Keywords: astyle c c++ cpp reformatter
+;; URL: https://github.com/storvik/emacs-astyle
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -31,6 +32,10 @@
 ;; This package contains functions and hooks for running artistic style
 ;; formatter on C / C++ source code.
 ;;
+;; To format buffer using astyle run `astyle-format-buffer'.  If astyle
+;; configuration file is found (file name `astyle-default-rc-name') it
+;; will be prefered.  If no configuration file is either
+;; `astyle-custom-args' or `astyle-default-args' is used.
 
 ;;; Code:
 
@@ -45,22 +50,22 @@
   :link '(url-link :tag "Repository" "https://github.com/storvik/emacs-astyle"))
 
 (defcustom astyle-style "google"
-  "Astyle style."
+  "Astyle style option, for alternatives see `http://astyle.sourceforge.net/astyle.html'."
   :type 'string
   :group 'astyle)
 
 (defcustom astyle-indent nil
-  "Astyle indent witdh, if nil set to `c-basic-offset'."
+  "Astyle indent width, if nil set to `c-basic-offset'."
   :type 'integer
   :group 'astyle)
 
 (defcustom astyle-default-rc-name ".astylerc"
-  "Astyle default rc file name, usually .astylerc."
+  "Default astyle config file name, usually .astylerc."
   :type 'string
   :group 'astyle)
 
 (defcustom astyle-custom-args nil
-  "Astyle indent width, if nil set to `c-basic-offset'."
+  "Custom astyle arguments, if nil `astyle-default-args' is used instead."
   :type '(repeat string)
   :group 'astyle)
 
@@ -71,7 +76,7 @@
     "--delete-empty-lines"
     "--align-pointer=type"
     "--align-reference=name")
-  "Astyle default arguments")
+  "Astyle default options.")
 
 (defun astyle--format-args ()
   "Will return astyle arguments depending whether .astylerc was found or not."
@@ -96,3 +101,7 @@
   :program "astyle"
   :args (astyle--format-args)
   :lighter " astyle")
+
+(provide 'astyle)
+
+;;; astyle.el ends here
