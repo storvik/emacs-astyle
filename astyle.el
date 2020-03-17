@@ -6,7 +6,7 @@
 ;; URL: https://github.com/storvik/emacs-astyle
 ;; Version: 0.1.0
 ;; Created: 2019-03-16
-;; Package-Requires: ((emacs "24.4") (reformatter "0.4"))
+;; Package-Requires: ((emacs "24.4") (reformatter "0.3"))
 ;; Keywords: astyle c c++ cpp reformatter
 ;; URL: https://github.com/storvik/emacs-astyle
 
