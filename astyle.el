@@ -34,8 +34,13 @@
 ;;
 ;; To format buffer using astyle run `astyle-format-buffer'.  If astyle
 ;; configuration file is found (file name `astyle-default-rc-name') it
-;; will be prefered.  If no configuration file is either
+;; will be prefered.  If no configuration file is found either
 ;; `astyle-custom-args' or `astyle-default-args' is used.
+;;
+;; There are two ways of enabling format on save functionality.  Either
+;; enable `astyle-format-on-save` in mode hook or place the following
+;; in your project `.dir-locals.el`:
+;; ((c-mode (mode . astyle-format-on-save)))
 
 ;;; Code:
 
@@ -76,7 +81,7 @@
     "--delete-empty-lines"
     "--align-pointer=type"
     "--align-reference=name")
-  "Astyle default options.")
+  "Default astyle argumentents.")
 
 (defun astyle--format-args ()
   "Will return astyle arguments depending whether .astylerc was found or not."
@@ -94,9 +99,9 @@
                   astyle-custom-args
                 astyle-default-args)))))
 
-;;;###autoload (autoload 'astyle-buffer "current-file" nil t)
-;;;###autoload (autoload 'astyle-region "current-file" nil t)
-;;;###autoload (autoload 'astyle-on-save-mode "current-file" nil t)
+;;;###autoload (autoload 'astyle-format-buffer "current-file" nil t)
+;;;###autoload (autoload 'astyle-format-region "current-file" nil t)
+;;;###autoload (autoload 'astyle-format-on-save-mode "current-file" nil t)
 (reformatter-define astyle-format
   :program "astyle"
   :args (astyle--format-args)
