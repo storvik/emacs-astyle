@@ -81,7 +81,9 @@
     "--delete-empty-lines"
     "--align-pointer=type"
     "--align-reference=name")
-  "Default astyle argumentents.")
+  "Default astyle arguments.")
+
+(defvar c-basic-offset)
 
 (defun astyle--format-args ()
   "Will return astyle arguments depending whether .astylerc was found or not."
