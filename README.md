@@ -1,5 +1,7 @@
 # astyle.el
 
+[![CI](https://github.com/storvik/emacs-astyle/workflows/CI/badge.svg)](https://github.com/storvik/emacs-astyle/actions)
+
 Emacs library that provides functions to easily reformat C code using [astyle](http://astyle.sourceforge.net/astyle.html).
 This library leverages [reformatter.el](https://github.com/purcell/reformatter.el) which makes working with formatters a breeze.
 
