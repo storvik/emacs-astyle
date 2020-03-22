@@ -7,7 +7,16 @@ This library leverages [reformatter.el](https://github.com/purcell/reformatter.e
 
 ## Installation
 
-Todo
+Typical installation using [use-package](https://github.com/jwiegley/use-package) looks like this:
+
+``` emacs-lisp
+(use-package astyle
+  :ensure t
+  :when (executable-find "astyle")
+  :hook (c-mode-common . astyle-on-save-mode))
+```
+
+`c-mode-common-hook` is used to enable format on save functionality.
 
 ## Usage
 
