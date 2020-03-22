@@ -101,10 +101,10 @@
                   astyle-custom-args
                 astyle-default-args)))))
 
-;;;###autoload (autoload 'astyle-format-buffer "current-file" nil t)
-;;;###autoload (autoload 'astyle-format-region "current-file" nil t)
-;;;###autoload (autoload 'astyle-format-on-save-mode "current-file" nil t)
-(reformatter-define astyle-format
+;;;###autoload (autoload 'astyle-buffer "astyle" nil t)
+;;;###autoload (autoload 'astyle-region "astyle" nil t)
+;;;###autoload (autoload 'astyle-on-save-mode "astyle" nil t)
+(reformatter-define astyle
   :program "astyle"
   :args (astyle--format-args)
   :lighter " astyle")
