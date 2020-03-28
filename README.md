@@ -1,5 +1,6 @@
 # astyle.el
 
+[![MELPA](https://melpa.org/packages/astyle-badge.svg)](https://melpa.org/#/astyle)
 [![CI](https://github.com/storvik/emacs-astyle/workflows/CI/badge.svg)](https://github.com/storvik/emacs-astyle/actions)
 
 Emacs library that provides functions to easily reformat C code using [astyle](http://astyle.sourceforge.net/astyle.html).
@@ -20,7 +21,7 @@ Typical installation using [use-package](https://github.com/jwiegley/use-package
 
 ## Usage
 
-Formatting can be invoked by running either `astyle-format-buffer` or `astyle-format-region`.
+Formatting can be invoked by running either `astyle-buffer` or `astyle-region`.
 If astyle configuration file is found (customize file name bu editing variable `astyle-default-rc-name`) it will be prefered.
 If no configuration file is found either `astyle-custom-args` or `astyle-default-args` is used
 
